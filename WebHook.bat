@@ -1,7 +1,7 @@
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
-::salute num 55555
+::salute num 666
 
 
 set debutchemin=C:\Users\%username%\DOneDrive\ONE DRIVE Documents\WebHook\
@@ -42,7 +42,7 @@ set message=true
 
 
 :: Copier le fichier VBS dans le dossier de démarrage
-copy "%cheminlancerWebHook%" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
+copy "%debutchemin%lancerWebHook.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
 
 :: Vérifier si l'opération a réussi
 if %ERRORLEVEL%==0 (

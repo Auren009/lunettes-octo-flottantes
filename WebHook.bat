@@ -43,7 +43,10 @@ set message=true
 
 :: Copier le fichier VBS dans le dossier de démarrage
 echo Set WshShell = CreateObject("WScript.Shell") > "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
-echo WshShell.Run "C:\Users\%username%\OneDrive\ONE DRIVE Documents\WebHook\WebHook.bat", 0, False >> "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
+echo WshShell.Run """C:\Users\Aubin\OneDrive\ONE DRIVE Documents\WebHook\WebHook.bat""", 0, False >> "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
+
+
+
 
 :: Vérifier si l'opération a réussi
 if %ERRORLEVEL%==0 (

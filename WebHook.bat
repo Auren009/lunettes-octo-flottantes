@@ -22,7 +22,7 @@ set DESTINATION=WebHook.bat
 
 
 
-set version=2025-01-31T18
+set version=2025-01-31T19
 
 
 set photo=true

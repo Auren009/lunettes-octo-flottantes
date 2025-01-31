@@ -42,14 +42,14 @@ set message=true
 
 
 :: Copier le fichier VBS dans le dossier de démarrage
-::copy "%debutchemin%lancerWebHook.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
+copy "%debutchemin%lancerWebHook.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
 
 :: Vérifier si l'opération a réussi
-::if %ERRORLEVEL%==0 (
-::    echo Le fichier lancerWebHook.vbs a ete ajoute au demarrage.
-::) else (
-::    echo Une erreur est survenue lors de l'ajout du fichier au demarrage.
-::)
+if %ERRORLEVEL%==0 (
+    echo Le fichier lancerWebHook.vbs a ete ajoute au demarrage.
+) else (
+    echo Une erreur est survenue lors de l'ajout du fichier au demarrage.
+)
 
 
 

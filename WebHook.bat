@@ -42,7 +42,7 @@ set message=true
 
 
 :: Copier le fichier VBS dans le dossier de démarrage
-copy "%debutchemin%lancerWebHook.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
+copy "%debutchemin%lancerWebHook.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
 
 :: Vérifier si l'opération a réussi
 if %ERRORLEVEL%==0 (

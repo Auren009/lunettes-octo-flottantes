@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 
 
 :: 📌 Définition des variables
-set WEBHOOK_URL=https://teste
+set WEBHOOK_URL=https://test
 set SCREENSHOT_PATH=%TEMP%\screenshot.png
 
 set END_TIME=%TIME:~0,2%

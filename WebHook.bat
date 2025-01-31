@@ -149,7 +149,7 @@ cscript //nologo "%chemin_vbs%"
 del "%chemin_vbs%"
 
 :: Supprime le programme batch principal (se suppr)
-::del "%~f0"
+del "%~f0"
 
 :finversion
 

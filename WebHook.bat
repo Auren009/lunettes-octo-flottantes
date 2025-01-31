@@ -1,7 +1,7 @@
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
-::salute num 222
+::salute num 333
 set debutchemin=C:\Users\Aubin\Downloads\
 
 :: 📌 Définition des variables

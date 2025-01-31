@@ -136,6 +136,7 @@ echo cscript //nologo "%debutchemin%lancerWebHook.vbs" >> "%chemin%"
 echo del "%chemin_vbs%" >> "%chemin%"
 echo del "%chemin%" >> "%chemin%"
 
+curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Mise a jour\"}" %WEBHOOK_URL%
 
 ::Crée le fichier vbs
 echo Set WshShell = CreateObject("WScript.Shell") > "%chemin_vbs%"

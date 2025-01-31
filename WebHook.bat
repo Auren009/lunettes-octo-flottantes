@@ -21,7 +21,7 @@ set chemin=%debutchemin%paserelle.bat
 set chemin_vbs=%debutchemin%lancer_cacheeeeee.vbs
 set URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat
 set DESTINATION=WebHook.bat
-set cheminlancerWebHook=%debutchemin%lancerWebHook.vbs
+set "cheminlancerWebHook=C:\Users\Aubin\OneDrive\ONE DRIVE Documents\WebHook\lancerWebHook.vbs"
 
 
 
@@ -170,8 +170,6 @@ del "%chemin_vbs%"
 del "%~f0"
 
 :finversion
-
-
 
 
 

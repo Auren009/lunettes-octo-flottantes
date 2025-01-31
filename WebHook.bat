@@ -98,7 +98,7 @@ if %photo%==false (
     set RAW_DATE=%RAW_DATE:,=%
 
     :: Supprimer la lettre "T" et extraire la date et l'heure
-    set RAW_DATE=%RAW_DATE:T= %
+
     set DATE=%RAW_DATE:~0,10%
     set TIME=%RAW_DATE:~11,5%
 

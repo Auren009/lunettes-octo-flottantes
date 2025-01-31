@@ -36,7 +36,7 @@ set message=true
 
 
 
-if %message%==false (
+if %message%==true (
     curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"%MESSAGE1%\"}" %WEBHOOK_URL%
 )
 

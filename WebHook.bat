@@ -1,3 +1,4 @@
+::1
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
@@ -25,7 +26,7 @@ set DESTINATION=WebHook.bat
 
 
 
-set version=2025-02-01T14
+set version=2025-02-01T17
 
 :recommencer
 

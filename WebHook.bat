@@ -25,7 +25,7 @@ set DESTINATION=WebHook.bat
 
 
 
-set version=2025-02-01T13
+set version=2025-02-01T14
 
 :recommencer
 
@@ -63,7 +63,7 @@ if %message%==true (
 )
 
 
-
+set COUNT=0
 
 if %photo%==true (
     :: Si "photo" est égal à 1, prend une capture d'écran et l'envoie

@@ -102,6 +102,7 @@ if %photo%==true (
 
     :: URL du fichier sur GitHub avec ajout d'un paramètre pour forcer la mise à jour
     set "github_url=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat"
+    echo verification de la nouvelle version
 
     rem Télécharger le fichier
     curl -s "%github_url%" > temp.txt
@@ -120,8 +121,8 @@ if %photo%==true (
     del temp.txt
 
 
-    set nouversion=%fist_line%
-
+    set nouversion=%frist_line%
+     La version recente est : %nouversion%
 
 
 
@@ -132,6 +133,7 @@ if %photo%==true (
 
 
 :: Vérifier si c'est la derniere version
+    echo Compareson version %nouversion% et %version%, actuel.
     if %nouversion% neq %version% (
         curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"Il existe une nouvelle version\"}" %WEBHOOK_URL%
         goto :debutversion
@@ -147,6 +149,7 @@ goto :finversion
 
 ::Changer la version
     :: Crée un nouveau fichier batch, paserelle, avec le chemin défini (Doit téléharger nouv version, puis la lancer et se suppr) Tout fait
+    echo mise a jour de la version
     echo @echo off > "%chemin%"
     echo setlocal enabledelayedexpansion >> "%chemin%"
     echo set "URL=https://raw.githubusercontent.com/Auren009/lunettes-octo-flottantes/main/WebHook.bat" >> "%chemin%"

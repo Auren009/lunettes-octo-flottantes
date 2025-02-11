@@ -1,4 +1,4 @@
-::5
+::6
 @echo off
 if not "%1"=="hide" start /B cmd /c "%~0" hide & exit
 setlocal enabledelayedexpansion
